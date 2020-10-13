@@ -1,0 +1,2 @@
+include ':example', ":violas-core"
+rootProject.name = "AndroidViolasSDK"
