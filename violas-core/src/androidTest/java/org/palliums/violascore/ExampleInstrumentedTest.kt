@@ -55,7 +55,8 @@ class ExampleInstrumentedTest {
             280000,
             0,
             lbrStructTagType(),
-            0
+            0,
+            2
         )
 
         val toByteString = rawTransaction.toByteArray()
