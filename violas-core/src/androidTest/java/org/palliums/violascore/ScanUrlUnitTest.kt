@@ -5,9 +5,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.palliums.libracore.wallet.AccountIdentifier
-import org.palliums.libracore.wallet.IntentIdentifier
-import org.palliums.libracore.wallet.SubAddress
+import org.palliums.violascore.wallet.AccountIdentifier
+import org.palliums.violascore.wallet.IntentIdentifier
+import org.palliums.violascore.wallet.SubAddress
 import org.palliums.violascore.serialization.hexToBytes
 import org.palliums.violascore.transaction.AccountAddress
 

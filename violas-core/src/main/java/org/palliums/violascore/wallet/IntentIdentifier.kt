@@ -1,4 +1,4 @@
-package org.palliums.libracore.wallet
+package org.palliums.violascore.wallet
 
 import androidx.core.net.toUri
 import java.net.URI

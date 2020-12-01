@@ -1,6 +1,6 @@
-package org.palliums.libracore.wallet
+package org.palliums.violascore.wallet
 
-import com.smallraw.chain.bitcoincore.crypto.Bech32Segwit
+import org.palliums.violascore.crypto.Bech32Segwit
 import org.palliums.violascore.transaction.AccountAddress
 import java.util.*
 

@@ -1,4 +1,4 @@
-package org.palliums.libracore.wallet
+package org.palliums.violascore.wallet
 
 import org.palliums.violascore.serialization.hexToBytes
 import org.palliums.violascore.serialization.toHex
@@ -46,10 +46,10 @@ class SubAddress {
                 '}'
     }
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
-        val that = o as SubAddress
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
+        val that = other as SubAddress
         return Arrays.equals(bytes, that.bytes)
     }
 
