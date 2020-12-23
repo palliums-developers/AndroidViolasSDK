@@ -1,28 +1,12 @@
 package org.palliums.violascore.transaction
 
 import android.content.Context
-import org.json.JSONObject
+import org.palliums.violascore.common.CURRENCY_DEFAULT_CODE
 import org.palliums.violascore.move.Move
-import org.palliums.violascore.serialization.hexToBytes
 import org.palliums.violascore.transaction.storage.StructTag
 import org.palliums.violascore.transaction.storage.TypeTag
 import org.palliums.violascore.utils.HexUtils
 import java.util.*
-
-fun lbrStructTag(): TypeTag {
-    return TypeTag.newStructTag(
-        StructTag(
-            AccountAddress.DEFAULT,
-            "XUS",
-            "XUS",
-            arrayListOf()
-        )
-    )
-}
-
-fun lbrStructTagType(): String {
-    return "XUS"
-}
 
 /**
  * 创建交易
@@ -31,7 +15,7 @@ fun RawTransaction.Companion.optionTransaction(
     senderAddress: String,
     payload: TransactionPayload,
     sequenceNumber: Long,
-    gasCurrencyCode: String = lbrStructTagType(),
+    gasCurrencyCode: String = CURRENCY_DEFAULT_CODE,
     maxGasAmount: Long = 1_000_000,
     gasUnitPrice: Long = 0,
     delayed: Long = 600,
@@ -60,7 +44,7 @@ fun TransactionPayload.Companion.optionTransactionPayload(
     amount: Long,
     metaData: ByteArray = byteArrayOf(),
     metadataSignature: ByteArray = byteArrayOf(),
-    typeTag: TypeTag = lbrStructTag()
+    typeTag: TypeTag = newDefaultStructTypeTag()
 ): TransactionPayload {
     val moveEncode = Move.decode(context.assets.open("move/violas_peer_to_peer_with_metadata.mv"))
 
@@ -93,6 +77,17 @@ fun TransactionPayload.Companion.optionAddCurrencyPayload(
         TransactionPayload.Script(
             moveEncode,
             arrayListOf(typeTag),
+            arrayListOf()
+        )
+    )
+}
+
+fun newDefaultStructTypeTag(): TypeTag {
+    return TypeTag.newStructTag(
+        StructTag(
+            AccountAddress.DEFAULT,
+            CURRENCY_DEFAULT_CODE,
+            CURRENCY_DEFAULT_CODE,
             arrayListOf()
         )
     )

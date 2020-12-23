@@ -195,7 +195,7 @@ class StructureTest {
 
     @Test
     fun test_lbr_struct_tag() {
-        val lbrStructTag = lbrStructTag()
+        val lbrStructTag = newDefaultStructTypeTag()
         println(lbrStructTag.toByteArray().toHex())
     }
 }

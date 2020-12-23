@@ -3,8 +3,8 @@ package org.palliums.violascore.mnemonic
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.palliums.violascore.crypto.Seed.Companion.MNEMONIC_SALT_DEFAULT
-import org.palliums.violascore.crypto.Seed.Companion.MNEMONIC_SALT_PREFIX
+import org.palliums.violascore.common.MNEMONIC_SALT_DEFAULT
+import org.palliums.violascore.common.MNEMONIC_SALT_PREFIX
 import org.palliums.violascore.utils.ByteUtility
 import org.palliums.violascore.utils.HexUtils
 import org.spongycastle.crypto.PBEParametersGenerator

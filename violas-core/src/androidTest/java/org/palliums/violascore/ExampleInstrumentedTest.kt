@@ -5,6 +5,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.palliums.violascore.common.CURRENCY_DEFAULT_CODE
 import org.palliums.violascore.move.Move
 import org.palliums.violascore.serialization.hexToBytes
 import org.palliums.violascore.transaction.*
@@ -43,7 +44,7 @@ class ExampleInstrumentedTest {
         val program = TransactionPayload(
             TransactionPayload.Script(
                 moveEncode,
-                arrayListOf(lbrStructTag()),
+                arrayListOf(newDefaultStructTypeTag()),
                 arrayListOf()
             )
         )
@@ -54,7 +55,7 @@ class ExampleInstrumentedTest {
             program,
             280000,
             0,
-            lbrStructTagType(),
+            CURRENCY_DEFAULT_CODE,
             0,
             2
         )

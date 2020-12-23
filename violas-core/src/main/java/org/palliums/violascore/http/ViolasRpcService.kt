@@ -3,6 +3,7 @@ package org.palliums.violascore.http
 import android.content.Context
 import android.util.Log
 import org.palliums.violascore.BuildConfig
+import org.palliums.violascore.common.CURRENCY_DEFAULT_CODE
 import org.palliums.violascore.crypto.*
 import org.palliums.violascore.serialization.hexToBytes
 import org.palliums.violascore.serialization.toHex
@@ -47,7 +48,7 @@ class ViolasRpcService(private val mViolasRpcRepository: ViolasRpcRepository) {
         payload: TransactionPayload,
         account: Account,
         sequenceNumber: Long = -1,
-        gasCurrencyCode: String = lbrStructTagType(),
+        gasCurrencyCode: String = CURRENCY_DEFAULT_CODE,
         maxGasAmount: Long = 1_000_000,
         gasUnitPrice: Long = 0,
         delayed: Long = 600,
@@ -146,7 +147,7 @@ class ViolasRpcService(private val mViolasRpcRepository: ViolasRpcRepository) {
         payload: TransactionPayload,
         account: Account,
         sequenceNumber: Long = -1,
-        gasCurrencyCode: String = lbrStructTagType(),
+        gasCurrencyCode: String = CURRENCY_DEFAULT_CODE,
         maxGasAmount: Long = 1_000_000,
         gasUnitPrice: Long = 0,
         delayed: Long = 600,
@@ -190,8 +191,8 @@ class ViolasRpcService(private val mViolasRpcRepository: ViolasRpcRepository) {
         account: Account,
         address: String,
         amount: Long,
-        typeTag: TypeTag = lbrStructTag(),
-        gasCurrencyCode: String = lbrStructTagType(),
+        typeTag: TypeTag = newDefaultStructTypeTag(),
+        gasCurrencyCode: String = CURRENCY_DEFAULT_CODE,
         chainId: Int
     ) {
         val transactionPayload =
@@ -266,7 +267,6 @@ class ViolasRpcService(private val mViolasRpcRepository: ViolasRpcRepository) {
         return sendTransaction(
             transactionPayload,
             account,
-            gasCurrencyCode = lbrStructTagType(),
             chainId = chainId
         )
     }

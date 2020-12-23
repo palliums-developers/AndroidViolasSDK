@@ -1,5 +1,6 @@
 package org.palliums.violascore.transaction
 
+import org.palliums.violascore.common.RAW_TRANSACTION_HASH_SALT
 import org.palliums.violascore.serialization.LCSInputStream
 import org.palliums.violascore.serialization.LCSOutputStream
 import org.palliums.violascore.serialization.hexToBytes
@@ -37,7 +38,6 @@ data class RawTransaction(
     }
 
     companion object {
-        const val RAW_TRANSACTION_HASH_SALT = "DIEM::RawTransaction"
 
         fun decode(input: LCSInputStream): RawTransaction {
             return RawTransaction(
