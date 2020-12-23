@@ -93,12 +93,12 @@ class SerializationTest {
     @Test
     fun test_bytes() {
         val res1 = LCS.encodeBytes(byteArrayOf(0x11, 0x22, 0x33, 0x44, 0x55))
-        assertEquals(res1.toHex(), "05000000 11 22 33 44 55".replace(" ", ""))
+        assertEquals(res1.toHex(), "05 11 22 33 44 55".replace(" ", ""))
 
         val byteArray = ByteArray(6)
         byteArray.putAll(byteArrayOf(0x11, 0x22, 0x33, 0x44, 0x55))
         val res2 = LCS.encodeBytes(byteArray).toHex()
-        assertEquals(res2, "06000000 11 22 33 44 55 00".replace(" ", ""))
+        assertEquals(res2, "06 11 22 33 44 55 00".replace(" ", ""))
     }
 
     @Test
@@ -118,7 +118,7 @@ class SerializationTest {
         val res1 = LCS.encodeString("ሰማይ አይታረስ ንጉሥ አይከሰስ።").toHex()
         assertEquals(
             res1,
-            "36000000E188B0E1889BE18BAD20E18AA0E18BADE189B3E188A8E188B520E18A95E18C89E188A520E18AA0E18BADE18AA8E188B0E188B5E18DA2".toLowerCase()
+            "36 E188B0E1889BE18BAD20E18AA0E18BADE189B3E188A8E188B520E18A95E18C89E188A520E18AA0E18BADE18AA8E188B0E188B5E18DA2".toLowerCase().replace(" ", "")
         )
     }
 
@@ -129,7 +129,7 @@ class SerializationTest {
         val res1 = LCS.encodeByteArrayList(arrayListOf).toHex()
         assertEquals(
             res1,
-            "03000000 02000000 0102 03000000 111213 01000000 21".replace(" ", "")
+            "03 02 0102 03 111213 01 21".replace(" ", "")
         )
     }
 
@@ -139,7 +139,7 @@ class SerializationTest {
         val res1 = LCS.encodeStrings(arrayListOf).toHex()
         assertEquals(
             res1,
-            "02000000 05000000 68656c6c6f 05000000 776f726c64".replace(" ", "")
+            "02 05 68656c6c6f 05 776f726c64".replace(" ", "")
         )
     }
 }

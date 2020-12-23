@@ -1,13 +1,10 @@
 package org.palliums.violascore.transaction
 
-import org.palliums.violascore.wallet.RAW_TRANSACTION_HASH_SALT
 import org.palliums.violascore.serialization.LCSInputStream
 import org.palliums.violascore.serialization.LCSOutputStream
 import org.palliums.violascore.serialization.hexToBytes
 import org.palliums.violascore.serialization.toHex
-import org.palliums.violascore.transaction.storage.TypeTag
 import org.spongycastle.jcajce.provider.digest.SHA3
-import java.lang.RuntimeException
 
 
 data class RawTransaction(
@@ -40,6 +37,8 @@ data class RawTransaction(
     }
 
     companion object {
+        const val RAW_TRANSACTION_HASH_SALT = "DIEM::RawTransaction"
+
         fun decode(input: LCSInputStream): RawTransaction {
             return RawTransaction(
                 AccountAddress.decode(input),

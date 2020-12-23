@@ -3,6 +3,7 @@ package org.palliums.violascore.wallet
 import org.palliums.violascore.crypto.KeyFactory
 import org.palliums.violascore.crypto.KeyPair
 import org.palliums.violascore.crypto.Seed
+import org.palliums.violascore.crypto.Seed.Companion.MNEMONIC_SALT_DEFAULT
 import org.palliums.violascore.mnemonic.English
 import org.palliums.violascore.mnemonic.Mnemonic
 import org.palliums.violascore.mnemonic.WordCount
@@ -22,7 +23,6 @@ class WalletConfig(
 class LibraWallet {
 
     companion object {
-        private const val MNEMONIC_SALT_DEFAULT = "LIBRA"
 
         fun generateMnemonic(words: WordCount = WordCount.TWELVE): ArrayList<String> {
             return Mnemonic(English.INSTANCE).generate(words)

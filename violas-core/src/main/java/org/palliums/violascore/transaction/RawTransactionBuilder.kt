@@ -13,15 +13,15 @@ fun lbrStructTag(): TypeTag {
     return TypeTag.newStructTag(
         StructTag(
             AccountAddress.DEFAULT,
-            "LBR",
-            "LBR",
+            "XUS",
+            "XUS",
             arrayListOf()
         )
     )
 }
 
 fun lbrStructTagType(): String {
-    return "LBR"
+    return "XUS"
 }
 
 /**

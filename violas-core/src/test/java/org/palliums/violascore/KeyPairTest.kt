@@ -32,15 +32,15 @@ class KeyPairTest {
         println("address: ${Account(keyPair).getAddress().toHex()}")
         assertEquals(
             HexUtils.toHex(keyPair.getPrivateKey().toByteArray()),
-            "ed7cc526bc39db7c754f1f90fbb5b7f7ce3499bee04e7525c3c599fcaa46aaea"
+            "abfd325f4a5bb45f99b0fbd601922ca5467d7814ab63a01f7a83699cfc765a8b"
         )
         assertEquals(
             HexUtils.toHex(keyPair.getPublicKey().toByteArray()),
-            "497681a1305fea13037794665286e0d185ea14a4656f89a00d87a9a33d336dd7"
+            "f7259d7016ac5efdb5c90a203cf7ff39905b6c5a3190b3b89958d32a03dc7600"
         )
         assertEquals(
             Account(keyPair).getAddress().toHex(),
-            "65e39e2e6b90ac215ec79e2b84690421d7286e6684b0e8e08a0b25dec640d849"
+            "32a616558102813269d6e3ab8e7f2333"
         )
     }
 

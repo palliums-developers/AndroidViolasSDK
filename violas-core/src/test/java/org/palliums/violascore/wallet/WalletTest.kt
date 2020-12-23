@@ -16,24 +16,21 @@ class WalletTest {
 
     @Test
     fun testGenerateSeed() {
-        val seed = Seed.fromMnemonic(generateMnemonic(), "LIBRA")
+        val seed = Seed.fromMnemonic(generateMnemonic())
         val seedHexStr = Hex.toHexString(seed.data)
         println()
         println("Wallet seed: $seedHexStr")
 
         Assert.assertEquals(
             seedHexStr,
-            "338d7f69773dd191683378dcd98897f505f3605d5746039bd9cc5aabf19d392f"
+            "4e8366c85f3414d0af36152230e7bbeb49929e4ac48e2fe860853883884244db"
         )
     }
 
     @Test
     fun testMasterPrk() {
         val keyFactory = KeyFactory(
-            Seed.fromMnemonic(
-                generateMnemonic(),
-                "LIBRA"
-            )
+            Seed.fromMnemonic(generateMnemonic())
         )
         val masterPrkStr = Hex.toHexString(keyFactory.masterPrk)
         println()
@@ -41,7 +38,7 @@ class WalletTest {
 
         Assert.assertEquals(
             masterPrkStr,
-            "a6ebf6ef1032e4a55ce94a13fd73cb7bf727f914e66734fb13ce64dfb5f02444"
+            "66ae6b767defe3ea0c646f10bf31ad3b36f822064d3923adada7676703a350c0"
         )
     }
 
@@ -57,11 +54,11 @@ class WalletTest {
 
         Assert.assertEquals(
             privateKey,
-            "f3cdd2183629867d6cfa24fb11c58ad515d5a4af014e96c00bb6ba13d3e5f80e"
+            "732bc883893c716f320c01864709ca9f16f8f30342a1de42144bfcc2ddb7af10"
         )
         Assert.assertEquals(
             publicKey,
-            "c413ea446039d0cd07715ddedb8169393e456b03d05ce67d50a4446ba5e067b0"
+            "eeb106043cc01f9fe6440a1490552b1b17c4f0b399a76ccdfcf686a3c73e4b58"
         )
     }
 
@@ -69,13 +66,14 @@ class WalletTest {
     fun testSign() {
         val libraWallet = LibraWallet(WalletConfig(generateMnemonic()))
         val account = libraWallet.newAccount()
-        val signHexStr = Hex.toHexString(account.keyPair.signMessage(Hex.decode("1234567890")).toByteArray())
+        val signHexStr =
+            Hex.toHexString(account.keyPair.signMessage(Hex.decode("1234567890")).toByteArray())
         println()
         println("message sign: $signHexStr")
 
         Assert.assertEquals(
             signHexStr,
-            "7233bd1e6ab55c720a8e5e9cfc90a34ab7cbe60580a3721d35bcf3a44d7cab666f10f6eb1bb669c92bbfd017210e2ce336b56a36ca1feefcca78d6718cdec109"
+            "8af6591e6ecd0a120fd6cc3c8451be0d3f02d179bf8acd109e62f3ec2fe637b4338eeddc23e5f5dfa52887b9e1a416ad166afd8c0effb99ec1426fffd7abda00"
         )
     }
 
@@ -93,11 +91,11 @@ class WalletTest {
 
         Assert.assertEquals(
             address1,
-            "3bc6a5ae944984ac296b72b69f5fbbcbfd4088c446e0958f400517462106154d"
+            "5c52cff595f5c0df90a5bcde5ec81663"
         )
         Assert.assertEquals(
             address2,
-            "46b4cf163e34090dc8e482a5def71d259fc6eaf2f59884abddc38f05f30f715a"
+            "ddd824775c3e4416debf8592f83ae60b"
         )
     }
 
@@ -107,7 +105,8 @@ class WalletTest {
         //         println("generated mnemonic words: ${mnemonicWords1.joinToString(" ")}")
 
         val mnemonic =
-            "school problem vibrant royal invite that never key thunder pizza mesh punch"
+            "legal winner thank year wave sausage worth useful legal winner thank year wave sausage worth useful legal will"
+//            "trouble menu nephew group alert recipe hotel fatigue wet shadow say fold huge olive solution enjoy garden appear vague joy great keep cactus melt"
         val mnemonicWords = mnemonic.split(" ")
 
         return mnemonicWords
